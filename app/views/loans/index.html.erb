@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date due</th>
+      <th>Contribution status</th>
+      <th>Contribution notes</th>
+      <th>Loan status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.date_due %></td>
+        <td><%= loan.contribution_status %></td>
+        <td><%= loan.contribution_notes %></td>
+        <td><%= loan.loan_status %></td>
+        <td><%= link_to 'Show', loan %></td>
+        <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
+        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan', new_loan_path %>
