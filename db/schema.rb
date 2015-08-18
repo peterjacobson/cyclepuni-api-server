@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817103004) do
+ActiveRecord::Schema.define(version: 20150818031805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bike_loans", force: :cascade do |t|
+    t.integer  "bike_id"
+    t.integer  "loan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bike_loans", ["bike_id"], name: "index_bike_loans_on_bike_id", using: :btree
+  add_index "bike_loans", ["loan_id"], name: "index_bike_loans_on_loan_id", using: :btree
 
   create_table "bikes", force: :cascade do |t|
     t.string   "photo"
@@ -30,6 +40,8 @@ ActiveRecord::Schema.define(version: 20150817103004) do
     t.string   "contribution_status"
     t.string   "contribution_notes"
     t.string   "loan_status"
+    t.string   "helmet"
+    t.string   "lock"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
