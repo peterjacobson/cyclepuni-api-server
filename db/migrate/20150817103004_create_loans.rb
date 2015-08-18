@@ -5,6 +5,8 @@ class CreateLoans < ActiveRecord::Migration
       t.string :contribution_status
       t.string :contribution_notes
       t.string :loan_status
+      t.string :helmet
+      t.string :lock
 
       t.timestamps null: false
     end
