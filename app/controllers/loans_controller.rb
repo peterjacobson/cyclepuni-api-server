@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  before_action :set_bike, only: [:create, :new]
 
   # GET /loans
   # GET /loans.json
@@ -65,6 +66,10 @@ class LoansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_loan
       @loan = Loan.find(params[:id])
+    end
+
+    def set_bike
+      @bike = Bike.find(params[:bike_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
