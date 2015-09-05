@@ -3,7 +3,10 @@ require 'rails_helper'
 
 RSpec.feature "LoanBikes", type: :feature do
   before do
-
+    5.times do 
+      create(:bike)
+      create(:person)
+    end
   end
 
   scenario 'can create a loan' do
