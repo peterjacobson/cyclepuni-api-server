@@ -8,6 +8,8 @@ class CreateLoans < ActiveRecord::Migration
       t.string :helmet
       t.string :lock
 
+      t.belongs_to :person, index: true
+
       t.timestamps null: false
     end
   end
