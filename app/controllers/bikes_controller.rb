@@ -1,7 +1,11 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
 
-
+  def for_loan
+    # all bikes with their latest loan having a date_returned of not nil
+    # all bikes not with their latest load having a date_returned being nil
+    @bikes_for_loan = Bike.w
+  end
   # GET /bikes
   # GET /bikes.json
   def index
