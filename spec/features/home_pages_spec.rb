@@ -6,12 +6,13 @@ RSpec.feature "HomePages", type: :feature do
   scenario 'Admin can log in and see dashboard ' do
     admin = FactoryGirl.create(:admin)
     visit root_path
-    click_on "Admin Sign In"
-    fill_field "email", admin.email
-    fill_field "password", admin.password
-    click_on "Go!"
+    click_on "Admin sign in"
+    fill_in "Email", with: admin.email
+    fill_in "Password", with: admin.password
+    click_on "Log in"
 
-    expect(page).to contain "New Loan"
-    expect(page).to contain "Return bike"
+    expect(page).to have_content "New Loan"
+    expect(page).to have_content "Return bike"
   end
+
 end
