@@ -6,7 +6,7 @@ class CreateLoans < ActiveRecord::Migration
       t.date :date_due
       t.string :contribution_status
       t.string :contribution_notes
-      t.string :loan_status
+      t.date :date_returned
       t.string :helmet
       t.string :lock
 
