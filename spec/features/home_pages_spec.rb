@@ -11,8 +11,7 @@ RSpec.feature "HomePages", type: :feature do
     fill_in "Password", with: admin.password
     click_on "Log in"
 
-    expect(page).to have_content "New Loan"
+    expect(page).to have_content "New loan"
     expect(page).to have_content "Return bike"
   end
-
 end
