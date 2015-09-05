@@ -12,11 +12,12 @@ RSpec.feature "LoanBikes", type: :feature do
     click_on "New bike loan"
     loan = attributes_for(:loan)
 
-    click_on "Add bike"
+    click_on "Select bike(s)"
     click_on "Borrow"
 
-    click_on "Borrower"
+    click_on "Select borrower"
     click_on "New person"
+
     borrower = attributes_for(:person)
     fill_in "Name", with: borrower.name
     fill_in "Phone", with: borrower.phone

@@ -1,6 +1,5 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
-  before_action :set_bike, only: [:create, :new, :index, :show]
 
   # GET /loans
   # GET /loans.json
@@ -15,6 +14,8 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
+    @requested_bikes = session[:requested_bikes] || []
+    @borrower_name = session[:borrower_name]
     @loan = Loan.new
   end
 
@@ -29,7 +30,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to bike_loans_path(@bike), notice: 'Loan was successfully created.' }
+        format.html { redirect_to loans_path(@bike), notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new }
@@ -66,10 +67,6 @@ class LoansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_loan
       @loan = Loan.find(params[:id])
-    end
-
-    def set_bike
-      @bike = Bike.find(params[:bike_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

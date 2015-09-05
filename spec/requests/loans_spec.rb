@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Loans", type: :request do
   describe "GET /loans" do
     it "works! (now write some real specs)" do
-      get bike_loans_path(@bike)
+      get loans_path(@bike)
       expect(response).to have_http_status(200)
     end
   end

@@ -1,4 +1,4 @@
-<%= form_for([@bike, @loan]) do |f| %>
+<%= form_for @loan do |f| %>
   <% if @loan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-
+  
 
   <div class="field">
     <%= f.label :date_due %><br>
@@ -29,6 +29,20 @@
     <%= f.label :loan_status %><br>
     <%= f.text_field :loan_status %>
   </div>
+
+  <div class="bikes">
+    <% @requested_bikes.each do |bike| %>
+      bike.name
+    <% end %>
+  </div>
+  <%= link_to "Select bike(s)" %>
+
+  <div class="person">
+    <% @borrower_name %>
+  </div>
+  <%= link_to "Select borrower", people_path %>
+  
+
   <div class="actions">
     <%= f.submit %>
   </div>

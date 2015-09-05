@@ -12,7 +12,7 @@ RSpec.describe "loans/new", type: :view do
   it "renders new loan form" do
     render
 
-    assert_select "form[action=?][method=?]", bike_loans_path(@bike), "post" do
+    assert_select "form[action=?][method=?]", loans_path(@bike), "post" do
 
       assert_select "input#loan_contribution_status[name=?]", "loan[contribution_status]"
 
